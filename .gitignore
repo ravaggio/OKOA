@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 ctf_final/ctf_final.Android/google-services.json
+ctf_final/ctf_final.iOS/GoogleService-Info.plist
