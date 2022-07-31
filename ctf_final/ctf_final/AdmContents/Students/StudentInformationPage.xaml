@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="Gerenciar aluno"
+             mc:Ignorable="d"
+             x:Class="ctf_final.AdmContents.Students.StudentInformationPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image Source="rating_bg.png" Aspect="AspectFill"
+                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                   AbsoluteLayout.LayoutFlags="All"/>
+            <StackLayout x:Name="mainLayout" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" Spacing="0" BackgroundColor="{StaticResource DarkTransparent}"/>
+            <ActivityIndicator x:Name="loadingSign" Color="{StaticResource Orange}" IsVisible="True" IsRunning="True" AbsoluteLayout.LayoutBounds=".5, .5, .1, .1" AbsoluteLayout.LayoutFlags="All" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

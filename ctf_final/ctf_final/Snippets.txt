@@ -1,0 +1,60 @@
+﻿
+gets all classes from 'classes' collection and update 'real_schedules'
+variables -> dayofweek.DayOfWeek, list, "classes/2021-06-21/", .Collection("real_schedules").Document("1")
+
+list = new string[12]{ "06:30", "07:00", "07:30", "08:00", "16:00", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00" };
+
+var dayofweek = new SchedulesByDayOfWeek { DayOfWeek = 1, TimesOverview = list.ToList() };
+var classes = new List<SchedulesByDayOfWeek.Times>();
+foreach(var t in list)
+{
+    var dt = await CrossCloudFirestore.Current
+                                        .Instance
+                                        .Collection("classes/2021-06-21/"+t)
+                                        .GetAsync();
+
+    foreach(var d in dt.Documents)
+    {
+        var doc = d.ToObject<SimpleClass>();
+
+        classes.Add(new SchedulesByDayOfWeek.Times() 
+        { 
+            Date = doc.Date,
+            StudentsList = doc.StudentsIDs,
+            Time = doc.Time,
+            Type = doc.Type
+        });
+    }
+}
+dayofweek.Classes = classes;
+await CrossCloudFirestore.Current
+        .Instance
+        .Collection("real_schedules")
+        .Document("1")
+        .SetAsync(segunda);
+
+#########
+
+cleaning classes collection
+
+var date = new DateTime(2020, 5, 20);
+var stringDates = new string[] { "00:00", "01:00", "06:30", "07:00", "07:30", "08:30", "09:00", "09:30", "10:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "19:25", "23:30", "22:10"};
+
+for (int i = 0; i < 300; i++)
+{
+    var dateToLook = date.ToString("yyyy-MM-dd");
+    try 
+    { 
+        for(int z = 0; z < stringDates.Length; z++)
+        {
+            var data = await CrossCloudFirestore.Current.Instance.Collection("classes/" + dateToLook + "/" + stringDates[z]).GetAsync();
+            foreach (var doc in data.Documents)
+            {
+                await doc.Reference.DeleteAsync();
+            };
+        }
+                                    
+    } catch (Exception e) { Console.WriteLine(e); }
+
+    date = date.AddDays(1);
+}

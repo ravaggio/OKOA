@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ctf_final.AdmContents.Students.ClassSetupPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="nextBtn" IconImageSource="ic_right_arrow.png" Clicked="Finish"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image Source="rating_bg.png" Aspect="AspectFill"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                    AbsoluteLayout.LayoutFlags="All"/>
+            <Grid RowSpacing="0" ColumnSpacing="0" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="Label">
+                            <Setter Property="TextColor" Value="{StaticResource TextLight}"/>
+                            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                        </Style>
+                    </ResourceDictionary>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout BackgroundColor="{StaticResource Primary}" Spacing="0" Padding="10, 8, 10, 8" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="2">
+                    <StackLayout.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="Button" x:Key="RemoveBtn">
+                                <Setter Property="Grid.Column" Value="1"/>
+                                <Setter Property="TextColor" Value="{StaticResource Orange}"/>
+                                <Setter Property="BackgroundColor" Value="Transparent"/>
+                                <Setter Property="BorderColor" Value="Transparent"/>
+                                <Setter Property="Text" Value="Remover"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </StackLayout.Resources>
+                    <Label Text="Selecione os horários dos treinos"/>
+                    <Label x:Name="selectedSchedulesLabel" Text="Aulas selecionadas 0/x" Margin="0,0,0,4"/>
+                    <Grid HorizontalOptions="Center" x:Name="slClass1" IsVisible="False">
+                        <Label Text="{Binding Desc}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
+                        <Button Style="{StaticResource RemoveBtn}" CommandParameter="0" Clicked="RemoveButton"/>
+                    </Grid>
+                    <Grid HorizontalOptions="Center" x:Name="slClass2" IsVisible="False">
+                        <Label Text="{Binding Desc}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
+                        <Button Style="{StaticResource RemoveBtn}" CommandParameter="1" Clicked="RemoveButton"/>
+                    </Grid>
+                    <Grid HorizontalOptions="Center" x:Name="slClass3" IsVisible="False">
+                        <Label Text="{Binding Desc}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
+                        <Button Style="{StaticResource RemoveBtn}" CommandParameter="2" Clicked="RemoveButton"/>
+                    </Grid>
+                    <Grid HorizontalOptions="Center" x:Name="slClass4" IsVisible="False">
+                        <Label Text="{Binding Desc}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
+                        <Button Style="{StaticResource RemoveBtn}" CommandParameter="0" Clicked="RemoveButton"/>
+                    </Grid>
+                    <Grid HorizontalOptions="Center" x:Name="slClass5" IsVisible="False">
+                        <Label Text="{Binding Desc}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
+                        <Button Style="{StaticResource RemoveBtn}" CommandParameter="0" Clicked="RemoveButton"/>
+                    </Grid>
+                    <Grid HorizontalOptions="Center" x:Name="slClass6" IsVisible="False">
+                        <Label Text="{Binding Desc}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
+                        <Button Style="{StaticResource RemoveBtn}" CommandParameter="0" Clicked="RemoveButton"/>
+                    </Grid>
+                </StackLayout>
+                <BoxView Grid.Row="1" BackgroundColor="{StaticResource PrimaryLight}" />
+                <Label Margin="0, 4, 0, 4" Grid.Row="1" Text="Dias da&#x0a;Semana" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <BoxView Grid.Row="2" BackgroundColor="{StaticResource DarkTransparent}" />
+                <Grid Margin="10, 6, 20, 6" Grid.Row="2" RowSpacing="12" ColumnSpacing="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="Label">
+                                <Setter Property="VerticalOptions" Value="Center"/>
+                                <Setter Property="TextColor" Value="{StaticResource TextLight}"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </Grid.Resources>
+                    <Switch Toggled="Switch_Toggled" x:Name="swi0" ClassId="switchDom"/>
+                    <Label Text="D"  Grid.Column="1"/>
+                    <Switch Grid.Row="1" Toggled="Switch_Toggled" x:Name="swi1" ClassId="switchSeg"/>
+                    <Label Text="S"  Grid.Column="1" Grid.Row="1"/>
+                    <Switch Grid.Row="2" Toggled="Switch_Toggled" x:Name="swi2" ClassId="switchTer"/>
+                    <Label Text="T"  Grid.Column="1" Grid.Row="2"/>
+                    <Switch Grid.Row="3" Toggled="Switch_Toggled" x:Name="swi3" ClassId="switchQua"/>
+                    <Label Text="Q"  Grid.Column="1" Grid.Row="3"/>
+                    <Switch Grid.Row="4" Toggled="Switch_Toggled" x:Name="swi4" ClassId="switchQui"/>
+                    <Label Text="Q"  Grid.Column="1" Grid.Row="4"/>
+                    <Switch Grid.Row="5" Toggled="Switch_Toggled" x:Name="swi5" ClassId="switchSex"/>
+                    <Label Text="S"  Grid.Column="1" Grid.Row="5"/>
+                    <Switch Grid.Row="6" Toggled="Switch_Toggled" x:Name="swi6" ClassId="switchSab"/>
+                    <Label Text="S"  Grid.Column="1" Grid.Row="6"/>
+                </Grid>
+                <BoxView BackgroundColor="{StaticResource PrimaryTransparent}" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" />
+                <ScrollView Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
+                    <StackLayout Margin="0" x:Name="schedulesView" Spacing="1">
+                        <Label x:Name="labelEmpty" IsVisible="False" Text="Nenhum horário correspondente disponível!" TextColor="{StaticResource Orange}" VerticalOptions="CenterAndExpand" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

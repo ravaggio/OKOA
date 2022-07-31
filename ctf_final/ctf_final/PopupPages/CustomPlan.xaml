@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:behavior="clr-namespace:ctf_final.Behaviors"
+    x:Class="ctf_final.PopupPages.CustomPlan"
+    CloseWhenBackgroundIsClicked = "True">
+    <!--You can set an animation in the xaml file or in the csharp code behind-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="150"
+            DurationOut="150"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <StackLayout
+        BackgroundColor="#FF090909"
+        VerticalOptions="Center" 
+        HorizontalOptions="FillAndExpand"
+        Margin="25, 0">
+        <Label x:Name="header" Margin="0,15,0,0" FontSize="Large" TextColor="{StaticResource Orange}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+        <Grid RowSpacing="5" x:Name="contentLayout" Padding="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label FontSize="Medium" VerticalOptions="Center" Text="Preço:" TextColor="{StaticResource TextLight}" />
+            <Entry TextColor="{StaticResource TextLight}" Keyboard="Numeric" PlaceholderColor="Gray" Grid.Column="1" x:Name="priceEntry">
+                <Entry.Behaviors>
+                    <behavior:DotBehaviour AddMoneySign="True"/>
+                </Entry.Behaviors>
+                <Entry.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                            <On Platform="Android" Value="Transparent" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Entry.BackgroundColor>
+            </Entry>
+            <Label FontSize="Medium" VerticalOptions="Center" Grid.Row="1" Text="Duração:" TextColor="{StaticResource TextLight}" />
+            <Picker TextColor="{StaticResource TextLight}" Grid.Row="1" Grid.Column="1"  SelectedIndex="0" x:Name="durationPicker">
+                <Picker.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                            <On Platform="Android" Value="Transparent" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Picker.BackgroundColor>
+            </Picker>
+            <Label FontSize="Medium" VerticalOptions="Center" Grid.Row="2" Text="x por Semana:" TextColor="{StaticResource TextLight}" />
+            <Picker TextColor="{StaticResource TextLight}" Grid.Row="2" Grid.Column="1"  SelectedIndex="0" x:Name="tpwPicker">
+                <Picker.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                            <On Platform="Android" Value="Transparent" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Picker.BackgroundColor>
+            </Picker>
+            <Label FontSize="Medium" VerticalOptions="Center" Grid.Row="3" Text="Tipo:" TextColor="{StaticResource TextLight}" />
+            <Picker TextColor="{StaticResource TextLight}" Grid.Row="3" Grid.Column="1"  SelectedIndex="0" x:Name="floatPicker">
+                <Picker.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                            <On Platform="Android" Value="Transparent" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Picker.BackgroundColor>
+            </Picker>
+        </Grid>
+        <Grid ColumnSpacing="0">
+            <BoxView BackgroundColor="{StaticResource Red}"/>
+            <Button Text="Cancelar" Clicked="CancelButtonClicked" TextColor="{StaticResource TextDark}" BackgroundColor="{StaticResource Red}"/>
+
+            <BoxView Grid.Column="1" BackgroundColor="{StaticResource Orange}"/>
+            <Button Grid.Column="1" Text="Confirmar" Clicked="PositiveButtonClicked" TextColor="{StaticResource TextDark}" x:Name="confirmBtn" BackgroundColor="{StaticResource Orange}"/>
+        </Grid>
+    </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,154 @@
+{
+  "images": [
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "1x",
+      "size": "768x1024",
+      "idiom": "ipad",
+      "filename": "Default-Portrait~ipad.png"
+    },
+    {
+      "orientation": "landscape",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "1x",
+      "size": "1024x768",
+      "idiom": "ipad",
+      "filename": "Default-LandscapeRight~ipad.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "2x",
+      "size": "1536x2048",
+      "idiom": "ipad",
+      "filename": "Default-Portrait@2x~ipad.png"
+    },
+    {
+      "orientation": "landscape",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "2x",
+      "size": "2048x1536",
+      "idiom": "ipad",
+      "filename": "Default-LandscapeRight@2x~ipad.png"
+    },
+    {
+      "orientation": "landscape",
+      "extent": "full-screen",
+      "minimum-system-version": "8.0",
+      "subtype": "736h",
+      "scale": "3x",
+      "size": "2208x1242",
+      "idiom": "iphone",
+      "filename": "Default-Landscape-414w-736h@3x~iphone.png"
+    },
+    {
+      "orientation": "landscape",
+      "extent": "full-screen",
+      "minimum-system-version": "11.0",
+      "subtype": "2436h",
+      "scale": "3x",
+      "size": "2436x1125",
+      "idiom": "iphone",
+      "filename": "Default-Landscape-812h@3x~iphone.png"
+    },
+    {
+      "orientation": "landscape",
+      "extent": "full-screen",
+      "minimum-system-version": "12.0",
+      "subtype": "1792h",
+      "scale": "2x",
+      "size": "1792x828",
+      "idiom": "iphone",
+      "filename": "Default-Landscape-1792h@2x~iphone.png"
+    },
+    {
+      "orientation": "landscape",
+      "extent": "full-screen",
+      "minimum-system-version": "12.0",
+      "subtype": "2688h",
+      "scale": "3x",
+      "size": "2688x1242",
+      "idiom": "iphone",
+      "filename": "Default-Landscape-2688h@3x~iphone.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "scale": "2x",
+      "size": "640x960",
+      "idiom": "iphone",
+      "filename": "Default@2x~iphone.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "7.0",
+      "subtype": "retina4",
+      "scale": "2x",
+      "size": "640x1136",
+      "idiom": "iphone",
+      "filename": "Default-568h@2x~iphone.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "8.0",
+      "subtype": "667h",
+      "scale": "2x",
+      "size": "750x1334",
+      "idiom": "iphone",
+      "filename": "Default-375w-667h@2x~iphone.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "8.0",
+      "subtype": "736h",
+      "scale": "3x",
+      "size": "1242x2208",
+      "idiom": "iphone",
+      "filename": "Default-414w-736h@3x~iphone.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "11.0",
+      "subtype": "2436h",
+      "scale": "3x",
+      "size": "1125x2436",
+      "idiom": "iphone",
+      "filename": "Default-812h@3x~iphone.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "12.0",
+      "subtype": "1792h",
+      "scale": "2x",
+      "size": "828x1792",
+      "idiom": "iphone",
+      "filename": "Default-1792h@2x~iphone.png"
+    },
+    {
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "minimum-system-version": "12.0",
+      "subtype": "2688h",
+      "scale": "3x",
+      "size": "1242x2688",
+      "idiom": "iphone",
+      "filename": "Default-2688h@3x~iphone.png"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": ""
+  }
+}

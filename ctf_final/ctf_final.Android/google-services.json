@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "78448249591",
+    "firebase_url": "https://ctf-project-fca7f.firebaseio.com",
+    "project_id": "ctf-project-fca7f",
+    "storage_bucket": "ctf-project-fca7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78448249591:android:aea638865cbd97e7",
+        "android_client_info": {
+          "package_name": "com.ctokoa.okoa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78448249591-kn218legb91a9qosah2p5vcdr2lsacu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2RlHa1HGv_mGH__cDzZoEB7f4vE89JIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78448249591-kn218legb91a9qosah2p5vcdr2lsacu3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

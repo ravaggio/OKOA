@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:me="clr-namespace:ctf_final.MarkupExtensions"
+             xmlns:behavior="clr-namespace:ctf_final.Behaviors"
+             mc:Ignorable="d"
+             Title="Cadastro de eventos"
+             x:Class="ctf_final.AdmContents.Event.EventCadastre">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource LightTransparent}"/>
+                <Setter Property="TextColor" Value="{StaticResource TextLight}"/>
+                <Setter Property="FontSize" Value="Body"/>
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="{StaticResource TextLight}"/>
+                <Setter Property="FontSize" Value="Body"/> 
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image Source="rating_bg.png" Aspect="AspectFill"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                    AbsoluteLayout.LayoutFlags="All"/>
+            <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"  BackgroundColor="{StaticResource DarkTransparent}">
+                <Grid Padding="10, 20" HorizontalOptions="FillAndExpand" ColumnSpacing="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="9*"/>
+                    </Grid.RowDefinitions>
+                    <Entry Grid.Row="0" Grid.ColumnSpan="2" x:Name="entryName" Placeholder="Nome">
+                        <Entry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Entry.BackgroundColor>
+                    </Entry>
+                    <Entry Grid.Row="1" Grid.ColumnSpan="2" x:Name="entryDescription" Placeholder="Descrição">
+                        <Entry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Entry.BackgroundColor>
+                    </Entry>
+                    <Entry Grid.Row="2" x:Name="entryBirthday" Placeholder="Data do evento" Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behavior:MakedEntryBehavior Mask="XX/XX/XXXX"/>
+                        </Entry.Behaviors>
+                        <Entry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Entry.BackgroundColor>
+                    </Entry>
+                    <TimePicker Grid.Row="2" Grid.Column="1" x:Name="entryTime" Format="HH:mm" TextColor="{StaticResource Orange}" Margin="10, 10, 0, 0" >
+                        <TimePicker.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </TimePicker.BackgroundColor>
+                    </TimePicker>
+                    <Button Grid.Row="3" Grid.ColumnSpan="2" Margin="8" x:Name="finishBtn" Text="Cadastrar" TextColor="{StaticResource TextDark}" BackgroundColor="{StaticResource Orange}" Clicked="RegisterEvent" />
+                </Grid>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

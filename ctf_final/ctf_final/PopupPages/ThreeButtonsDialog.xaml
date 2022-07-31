@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    x:Class="ctf_final.PopupPages.ThreeButtonsDialog"
+    CloseWhenBackgroundIsClicked = "True">
+    <!--You can set an animation in the xaml file or in the csharp code behind-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="150"
+            DurationOut="150"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <StackLayout
+        BackgroundColor="#FF090909"
+        VerticalOptions="Center" 
+        HorizontalOptions="FillAndExpand"
+        Margin="25, 0"
+        Padding="0, 10, 0, 0">
+        <Label FontSize="Large"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Text="Header" x:Name="headerLabel" TextColor="{StaticResource Orange}"/>
+        <Label FontSize="Medium" Margin="16,0,16,10" Text="text" x:Name="textLabel" TextColor="{StaticResource TextLight}"/>
+        <Grid ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <BoxView BackgroundColor="{StaticResource Red}"/>
+            <Button Text="Cancelar" Clicked="CancelButtonClicked" TextColor="{StaticResource TextDark}" BackgroundColor="{StaticResource Red}">
+                <Button.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="10, 0" />
+                            <On Platform="Android" Value="0" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Button.Padding>
+            </Button>
+
+            <BoxView Grid.Column="1" BackgroundColor="{StaticResource Orange}"/>
+            <Button Grid.Column="1" Text="Não" Clicked="NegativeButtonClicked" TextColor="{StaticResource TextDark}" x:Name="negativeButton" BackgroundColor="{StaticResource Orange}"/>
+
+            <BoxView Grid.Column="2" BackgroundColor="{StaticResource Orange}"/>
+            <Button Grid.Column="2" Text="Sim" Clicked="PositiveButtonClicked" TextColor="{StaticResource TextDark}" x:Name="positiveButton" BackgroundColor="{StaticResource Orange}"/>
+
+            <BoxView Grid.Column="2" BackgroundColor="{StaticResource PrimaryDark}" WidthRequest="1" HorizontalOptions="Start" />
+        </Grid>
+    </StackLayout>
+</pages:PopupPage>

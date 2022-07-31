@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behavior="clr-namespace:ctf_final.Behaviors"
+             mc:Ignorable="d"
+             x:Class="ctf_final.Login"
+             xmlns:views="clr-namespace:ctf_final.CustomRenderers"
+             BackgroundColor="{StaticResource PrimaryDark}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Orange}"/>
+                <Setter Property="TextColor" Value="{StaticResource TextDark}" />
+            </Style>
+            <Style TargetType="Editor">
+                <Setter Property="TextColor" Value="#f5f5f5"/>
+                <Setter Property="PlaceholderColor" Value="Gray"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#f5f5f5"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <views:KeyboardGrid x:Name="screen" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <Image Source="okoa_bg.png" Aspect="AspectFill"/>
+            <StackLayout VerticalOptions="Center" Padding="8,0" Grid.Row="1" AbsoluteLayout.LayoutFlags="All">
+                <Entry MaxLength="6" TextColor="{StaticResource TextLight}" PlaceholderColor="{StaticResource LightTransparent}" BackgroundColor="Transparent" x:Name="user" Placeholder="Usuário"  FontSize="Medium" Keyboard="Numeric" ReturnType="Next"/>
+                <Entry TextColor="{StaticResource TextLight}" PlaceholderColor="{StaticResource LightTransparent}" x:Name="pass"  BackgroundColor="Transparent" Placeholder="Senha" FontSize="Medium" Keyboard="Numeric" ReturnType="Send">
+                    <Entry.Behaviors>
+                        <behavior:MakedEntryBehavior Mask="XX/XX/XXXX"/>
+                    </Entry.Behaviors>
+                </Entry>
+                <Button x:Name="loginBtn" Text="Entrar" Clicked="Login_Clicked"/>
+            </StackLayout>
+        </views:KeyboardGrid>
+    </ContentPage.Content>
+</ContentPage>

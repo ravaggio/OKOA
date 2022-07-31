@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:me="clr-namespace:ctf_final.MarkupExtensions"
+             xmlns:behavior="clr-namespace:ctf_final.Behaviors"
+             mc:Ignorable="d"
+             Title="Cadastro de pesquisas"
+             x:Class="ctf_final.AdmContents.Review.ResearchCadastre">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource LightTransparent}"/>
+                <Setter Property="TextColor" Value="{StaticResource TextLight}"/>
+                <Setter Property="FontSize" Value="Body"/>
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="{StaticResource TextLight}"/>
+                <Setter Property="FontSize" Value="Body"/> 
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image Source="rating_bg.png" Aspect="AspectFill"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                    AbsoluteLayout.LayoutFlags="All"/>
+            <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"  BackgroundColor="{StaticResource DarkTransparent}">
+                <StackLayout x:Name="mainLayout" Padding="10" Spacing="5"/>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

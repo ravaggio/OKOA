@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:me="clr-namespace:ctf_final.MarkupExtensions"
+             xmlns:behavior="clr-namespace:ctf_final.Behaviors"
+             mc:Ignorable="d"
+             Title="Cadastro de alunos"
+             x:Class="ctf_final.AdmContents.Students.StudentCadastre">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource LightTransparent}"/>
+                <Setter Property="TextColor" Value="{StaticResource TextLight}"/>
+                <Setter Property="FontSize" Value="Body"/>
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="{StaticResource TextLight}"/>
+                <Setter Property="FontSize" Value="Body"/> 
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image Source="rating_bg.png" Aspect="AspectFill"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                    AbsoluteLayout.LayoutFlags="All"/>
+            <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"  BackgroundColor="{StaticResource DarkTransparent}">
+                <Grid Padding="10, 20" HorizontalOptions="FillAndExpand" ColumnSpacing="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.ColumnSpan="2" ColumnSpacing="18">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <controls:CircleImage Grid.Column="1" Aspect="AspectFill" HorizontalOptions="Center" x:Name="selectedImage" WidthRequest="82" HeightRequest="82" Source="{me:EmbeddedImage ctf_final.Images.empty.jpg}" />
+                        <Button Text="Selecionar" Grid.Column="2" Clicked="PickImage" VerticalOptions="Center" BackgroundColor="{StaticResource Orange}" TextColor="{StaticResource TextDark}">
+                            <Button.Padding>
+                                <OnPlatform x:TypeArguments="Thickness" 
+                                    Android="10, 0, 10, 0" 
+                                    iOS="10, 0, 10, 0"/>
+                            </Button.Padding>
+                        </Button>
+                    </Grid>
+                    <Entry Grid.Row="1" Grid.ColumnSpan="2" x:Name="entryName" Placeholder="Nome completo">
+                        <Entry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Entry.BackgroundColor>
+                    </Entry>
+                    <Entry Grid.Row="2" x:Name="entryBirthday" Placeholder="Data de nascimento" Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behavior:MakedEntryBehavior Mask="XX/XX/XXXX"/>
+                        </Entry.Behaviors>
+                        <Entry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Entry.BackgroundColor>
+                    </Entry>
+                    <Picker Grid.Row="2" Grid.Column="1" x:Name="pickerSex" SelectedIndex="0">
+                        <Picker.Items>
+                            <x:String>Masculino</x:String>
+                            <x:String>Feminino</x:String>
+                            <x:String>Não informar</x:String>
+                        </Picker.Items>
+                        <Picker.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Picker.BackgroundColor>
+                    </Picker>
+                    <Entry Grid.Row="3" Grid.ColumnSpan="2" x:Name="entryPhone" Placeholder="Telefone" Keyboard="Telephone">
+                        <Entry.Behaviors>
+                            <behavior:MakedEntryBehavior Mask="(XX) XXXXX-XXXX"/>
+                        </Entry.Behaviors>
+                        <Entry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Entry.BackgroundColor>
+                    </Entry>
+                    <Entry Grid.Row="4" Grid.ColumnSpan="2" x:Name="entryEmail" Placeholder="Email">
+                        <Entry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Entry.BackgroundColor>
+                    </Entry>
+                    <Entry Grid.Row="5" Grid.ColumnSpan="2" x:Name="entryAddress" Placeholder="Endereço">
+                        <Entry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                    <On Platform="Android" Value="Transparent" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Entry.BackgroundColor>
+                    </Entry>
+                    <StackLayout x:Name="planLayout" Grid.Row="6" Grid.ColumnSpan="2" Spacing="1">
+                        <Button Text="SELECIONAR PLANO" Clicked="PickPlan" BackgroundColor="{StaticResource DarkTransparent}" BorderColor="{StaticResource DarkTransparent}" BorderWidth="1" TextColor="{StaticResource Orange}"/>
+                        <Label x:Name="labelSelectedPlans" Text="Nenhum plano selecionado." TextColor="{StaticResource TextLight}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="Body"/>
+                    </StackLayout>
+                    <Button Grid.Row="7" Grid.ColumnSpan="2" Margin="8" x:Name="finishBtn" Text="Cadastrar" TextColor="{StaticResource TextDark}" BackgroundColor="{StaticResource Orange}" Clicked="RegisterStudent" />
+                </Grid>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

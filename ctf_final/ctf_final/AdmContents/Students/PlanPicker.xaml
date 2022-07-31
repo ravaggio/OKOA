@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Selecionar plano"
+             x:Class="ctf_final.AdmContents.Students.PlanPicker">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_plus_accent.png" Clicked="CustomPlan"/>
+        <ToolbarItem IconImageSource="ic_checkmark.png" Clicked="Finish"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image Source="rating_bg.png" Aspect="AspectFill"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                    AbsoluteLayout.LayoutFlags="All"/>
+            <BoxView BackgroundColor="{StaticResource DarkTransparent}"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                    AbsoluteLayout.LayoutFlags="All"/>
+            <Grid RowSpacing="0" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="9*"/>
+                </Grid.RowDefinitions>
+                <Grid ColumnSpacing="0" BackgroundColor="{StaticResource DarkTransparent}">
+                    <BoxView x:Name="bgTrain" BackgroundColor="{StaticResource Orange}">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TrainButton" NumberOfTapsRequired="1"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Label Margin="6" FontSize="Medium" TextColor="{StaticResource TextLight}" Text="TREINOS" InputTransparent="True" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <BoxView x:Name="bgYoga" BackgroundColor="{StaticResource DarkTransparent}" Grid.Column="1">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="YogaButton" NumberOfTapsRequired="1"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Label Margin="6" FontSize="Medium" TextColor="{StaticResource TextLight}" Text="YOGA" InputTransparent="True" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1"/>
+                    <BoxView x:Name="bgPilates" BackgroundColor="{StaticResource DarkTransparent}" Grid.Column="2">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PilatesButton" NumberOfTapsRequired="1"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Label Margin="6" FontSize="Medium" TextColor="{StaticResource TextLight}" Text="PILATES" InputTransparent="True" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2"/>
+                </Grid>
+                <ScrollView x:Name="scrollView" VerticalOptions="StartAndExpand" Grid.Row="1">
+                    <StackLayout Spacing="0">
+                        <StackLayout x:Name="trainViewLayout" Spacing="0" />
+                        <StackLayout x:Name="yogaViewLayout" Spacing="0" IsVisible="False"/>
+                        <StackLayout x:Name="pilatesViewLayout" Spacing="0" IsVisible="False"/>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

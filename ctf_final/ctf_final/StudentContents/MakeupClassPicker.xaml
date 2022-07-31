@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ctf_final.StudentContents.MakeupClassPicker"
+             Title="Horários Disponíveis">
+    <ContentPage.Content>
+        <AbsoluteLayout x:Name="mainLayout">
+            <Image Source="bg.png" Aspect="AspectFill"
+                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                   AbsoluteLayout.LayoutFlags="All"/>
+            <Grid RowSpacing="0" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="{StaticResource DarkTransparent}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <BoxView Color="{StaticResource Primary}"/>
+                <Picker x:Name="weekdayPicker" SelectedIndexChanged="OnDateChange" Margin="20, 0" TextColor="{StaticResource Orange}" VerticalOptions="Center">
+                    <Picker.BackgroundColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                                <On Platform="Android" Value="Transparent" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Picker.BackgroundColor>
+                </Picker>
+                <ScrollView Grid.Row="1">
+                    <StackLayout x:Name="contentLayout" Spacing="0" HorizontalOptions="Fill"/>
+                </ScrollView>
+            </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

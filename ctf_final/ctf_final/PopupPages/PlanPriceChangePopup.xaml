@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:behavior="clr-namespace:ctf_final.Behaviors"
+    x:Class="ctf_final.PopupPages.PlanPriceChangePopup">
+    <!--You can set an animation in the xaml file or in the csharp code behind-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="100"
+            DurationOut="100"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <StackLayout
+        BackgroundColor="#FF090909"
+        Spacing="0"
+        VerticalOptions="Center" 
+        HorizontalOptions="FillAndExpand"
+        Margin="20, 0, 20, 0">
+
+        <Label Margin="10, 20, 10, 5" FontSize="Medium" Text="Alterar preço do plano selecionado?" HorizontalTextAlignment="Center" TextColor="{StaticResource Orange}"/>
+        <Label Margin="10, 5, 10, 10" FontSize="Small" HorizontalOptions="Center" x:Name="planResume" TextColor="{StaticResource LightTransparent}"/>
+        <Grid ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label VerticalOptions="Center" HorizontalOptions="Center" Margin="10, 0, 0, 0" FontSize="Medium" Grid.Row="0" Text="Preço: " TextColor="{StaticResource TextLight}"/>
+            <Entry Margin="0, 0, 10, 0" x:Name="priceEntry" Keyboard="Numeric" Grid.Row="0" Grid.Column="1" TextColor="{StaticResource TextLight}">
+                <Entry.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="{StaticResource PrimaryDark}" />
+                            <On Platform="Android" Value="Transparent" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Entry.BackgroundColor>
+                <Entry.Behaviors>
+                    <behavior:DotBehaviour AddMoneySign="True"/>
+                </Entry.Behaviors>
+            </Entry>
+
+            <BoxView BackgroundColor="{StaticResource Red}" Grid.Row="1"/>
+            <Button Grid.Row="1" BackgroundColor="{StaticResource Red}" TextColor="{StaticResource TextDark}" Text="Cancelar" Clicked="CancelBtn"/>
+
+            <BoxView BackgroundColor="{StaticResource Orange}" Grid.Row="1" Grid.Column="1"/>
+            <Button Grid.Row="1" Grid.Column="1" BackgroundColor="{StaticResource Orange}" IsEnabled="False" TextColor="{StaticResource TextDark}"  x:Name="finishBtn"  Text="Confirmar" Clicked="FinishBtn"/>
+        </Grid>
+    </StackLayout>
+</pages:PopupPage>
