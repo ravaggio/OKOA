@@ -362,4 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-/ctf_final/ctf_final.Android/google-services.json
+ctf_final/ctf_final.Android/google-services.json
